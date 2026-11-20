@@ -16,5 +16,5 @@ Preview locally from this folder: `python3 -m http.server`, then open http://loc
 - Colours and fonts are the light store theme in `godot/docs/STYLE.md` there. Nothing may look like
   Tidewater or Stormtide.
 - Images in `img/` are copies from that repository: `mark.png` (`godot/store/brand/mark-light.png`, 256 px),
-  `favicon.png`, `godot-cover.png` (`godot/store/cover.png`) and `unity-cover.png`
+  `favicon.png` and `unity-cover.png`
   (`unity/Store/art/itch-cover-630x500.png`). Recopy them if the store art changes.
