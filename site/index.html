@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Water Wizard</title>
+<meta name="description" content="Water shaders, ocean tools, and other wet things for your games. Small prices. Full source. Bring your own boat.">
+<link rel="canonical" href="https://waterwizard.site/">
+<meta property="og:url" content="https://waterwizard.site/">
+<meta property="og:title" content="Water Wizard">
+<meta property="og:image" content="https://waterwizard.site/img/godot-cover.png">
+<meta property="og:description" content="Water shaders, ocean tools, and other wet things for your games.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B2233;
+    --deep: #071B2B;
+    --paper: #F4F5F2;
+    --bg: #E6E9E6;
+    --text: #16232B;
+    --muted: #5B6B73;
+    --accent: #C2410C;
+    --link: #0F4C5C;
+    --foam: #DDE6EA;
+    --rule: #CDD3D0;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 "IBM Plex Sans", system-ui, sans-serif;
+  }
+  a { color: var(--link); }
+  h1, h2, h3 {
+    font-family: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    letter-spacing: .03em;
+    line-height: 1.15;
+  }
+  h2 { color: var(--accent); text-transform: uppercase; font-size: 1.35rem; margin: 0 0 1rem; }
+  h3 { font-size: 1.45rem; margin: 0; }
+
+  header {
+    background: var(--navy);
+    color: var(--paper);
+    padding: 48px 16px 40px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 20px; }
+  .brand img { width: 84px; height: 84px; flex: none; }
+  .brand h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .tagline { font-size: 1.25rem; margin: 28px 0 4px; color: var(--foam); }
+  .subline { margin: 0; color: var(--foam); opacity: .8; }
+  .tagline::after {
+    content: ""; display: block; width: 72px; height: 4px;
+    background: var(--accent); margin-top: 14px;
+  }
+
+  main { padding: 0 16px; }
+  section.wrap {
+    background: var(--paper);
+    margin: 32px auto;
+    padding: 32px;
+    border-radius: 4px;
+  }
+  .about p { margin: 0; max-width: 70ch; }
+
+  .products { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .product { display: flex; flex-direction: column; }
+  .product img { width: 100%; height: auto; aspect-ratio: 630 / 500; display: block; border-radius: 3px; }
+  .product .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 12px; margin: 18px 0 6px;
+  }
+  .price {
+    font-family: "IBM Plex Sans Condensed", sans-serif;
+    font-weight: 600; color: var(--accent); white-space: nowrap; font-size: 1.15rem;
+  }
+  .lead { font-weight: 600; margin: 0 0 8px; }
+  .product p { margin: 0 0 12px; }
+  .product ul { margin: 0; padding-left: 1.2em; }
+  .product li { margin: 4px 0; }
+
+  .contact p { margin: 0 0 8px; }
+  .email { font-size: 1.15rem; font-weight: 600; word-break: break-all; }
+
+  footer { color: var(--muted); font-size: .9rem; text-align: center; padding: 8px 16px 40px; }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    header { padding: 32px 16px; }
+    .brand img { width: 56px; height: 56px; }
+    section.wrap { padding: 22px 16px; margin: 20px auto; }
+    .products { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="img/mark.png" alt="" width="84" height="84">
+      <h1>Water Wizard</h1>
+    </div>
+    <p class="tagline">Water shaders, ocean tools, and other wet things for your games.</p>
+    <p class="subline">Small prices. Full source. Bring your own boat.</p>
+  </div>
+</header>
+
+<main>
+  <section class="wrap about">
+    <h2>About</h2>
+    <p>This started because I needed an ocean for a little sailing game and couldn't find one I liked at a price I could justify, so I wrote one. It's an FFT ocean based on Tessendorf's paper, with the waves driven by wind speed, so one slider takes you from flat calm to a storm. Boats float on the actual wave height instead of a guess. The sailing game never got finished, but the water kept getting better. Everything comes with full source and the demo scene from the screenshots. If something breaks or you'd like a feature, <a href="mailto:waterwizardstudios@gmail.com">send me an email</a> and I'll take a look.</p>
+  </section>
+
+  <section class="wrap">
+    <h2>Water</h2>
+    <div class="products">
+
+      <article class="product">
+        <img src="img/unity-cover.png" alt="Unity 6 URP FFT Water: chase view of a rigid inflatable boat running into a low sun" width="630" height="500">
+        <div class="head">
+          <h3>Unity Water [FFT]</h3>
+          <span class="price">$4.99</span>
+        </div>
+        <p class="lead">Big ocean. Tiny price. Full-source FFT ocean for Unity 6 URP: waves, whitecaps, buoyancy, boat wakes, underwater.</p>
+        <ul>
+          <li>Unity 6000.0 or later with URP 17.</li>
+          <li>C# + HLSL with assembly definitions. No native plugin.</li>
+          <li>GPU compute FFT ocean: wind sea, swell, finite depth, Beaufort presets 0–12.</li>
+          <li>One .unitypackage: the water system, a drivable demo scene, EditMode tests, the manual and the licence.</li>
+          <li>Unlimited games and apps. No royalties.</li>
+        </ul>
+      </article>
+
+      <article class="product">
+        <img src="img/godot-cover.png" alt="Godot 4 FFT Water: chase view of a rigid inflatable boat running into a low sun" width="630" height="500">
+        <div class="head">
+          <h3>Godot Water Shader [FFT]</h3>
+          <span class="price">$4.99</span>
+        </div>
+        <p class="lead">Big ocean. Tiny price. Full-source FFT ocean shader for Godot 4: waves, whitecaps, buoyancy, boat wakes, underwater.</p>
+        <ul>
+          <li>Built and tested on Godot 4.7.2. Compatibility/web needs Godot 4.7+.</li>
+          <li>GDScript + GLSL. No C#, no GDExtension, no native plugin to compile.</li>
+          <li>GPU FFT ocean with wind sea, independent swell, depth controls, and Beaufort presets 0–12.</li>
+          <li>Full demo project + standalone addon, including the manual and licence.</li>
+          <li>Unlimited projects. No royalties. No per-seat charge.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="wrap contact">
+    <h2>Contact</h2>
+    <p>Bugs, feature requests, questions or buying: email</p>
+    <p><a class="email" href="mailto:waterwizardstudios@gmail.com">waterwizardstudios@gmail.com</a></p>
+  </section>
+</main>
+
+<footer>Water Wizard. Bring your own boat.</footer>
+
+</body>
+</html>
